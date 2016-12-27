@@ -26,7 +26,7 @@ class ConfusionMatrix(object):
 			self.matPositif.append(prediksi)
 			jumlahData+=1
 
-		for imageTestNegatif in glob.glob(os.path.join(tesNegatif, "*")): # variabel tesPositif dari file config.py
+		for imageTestNegatif in glob.glob(os.path.join(tesNegatif, "*")): # variabel tesNegatif dari file config.py
 			img = cv2.imread(imageTestNegatif, cv2.CV_LOAD_IMAGE_GRAYSCALE)
 			fitur = hog(img, orientations, cellSize, cellPerBlock, visualizeHOG, normalizeHOG)
 			prediksi = self.model.predict(fitur)

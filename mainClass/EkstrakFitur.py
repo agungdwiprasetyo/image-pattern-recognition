@@ -19,7 +19,7 @@ class EkstrakFitur(object):
         # Buat array untuk menampung data vektor hasil ekstraksi fitur data latih objek dan bukan objek
         vektorObjek = []
         vektorNonObjek = []
-        summ = 0
+        obj, nonObj = 0,0
 
         print "Menghitung nilai vektor sample fitur positif (objek yang akan dideteksi)..."
         for img in glob.glob(os.path.join(self.pathPositif, "*")): # load satu-satu data citra objek pada folder datates
@@ -28,9 +28,8 @@ class EkstrakFitur(object):
             fitur = hog(im, orientations, cellSize, cellPerBlock, visualizeHOG, normalizeHOG) # variabel dari file config
             # fitur = EkstrakWavelet(im).ekstrak()
             vektorObjek.append(fitur)
-            summ+=1
-        print summ
-        summ = 0
+            obj+=1
+        print "Banyak citra objek yang dilatih =",obj
         print "Menghitung nilai vektor sample fitur negatif (citra yang bukan termasuk objek)..."
         for img in glob.glob(os.path.join(self.pathNegatif, "*")): # load satu-satu data citra bukan objek pada folder datates
             im = cv2.imread(img, cv2.CV_LOAD_IMAGE_GRAYSCALE)
@@ -38,8 +37,8 @@ class EkstrakFitur(object):
             fitur = hog(im,  orientations, cellSize, cellPerBlock, visualizeHOG, normalizeHOG)
             # fitur = EkstrakWavelet(im).ekstrak()
             vektorNonObjek.append(fitur)
-            summ+=1
-        print summ
+            nonObj+=1
+        print "Banyak citra bukan objek yang dilatih =",nonObj
         print "Banyaknya vektor yang terbentuk per citra = ",np.size(fitur) # variabel fitur sebagai sample
         # Untuk menampilkan citra hasil perhitungan HOG, visualizeHOG = True
         # cv2.imshow("Contoh citra hasil HOG",fitur[1])

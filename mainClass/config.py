@@ -30,4 +30,4 @@ fiturBukanObjek = "data/fitur/neg"
 folderModel = "data/models/svm.model"
 
 # nilai thresold untuk proses NMS
-threshold = 0.3
+threshold = 0.2
