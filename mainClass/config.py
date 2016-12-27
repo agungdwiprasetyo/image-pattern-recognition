@@ -18,7 +18,7 @@ normalizeHOG = True
 
 # Folder data latih
 # Ikan
-tesObjek = "data/datalatih/Ikan/TrainImages/TrainPos"
+tesObjek = "data/datalatih/Ikan/TrainImages/pos"
 tesNotObjek = "data/datalatih/Ikan/TrainImages/neg"
 
 # Folder tempat vektor hasil ekstrak ciri dan model
