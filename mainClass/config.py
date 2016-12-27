@@ -21,10 +21,13 @@ normalizeHOG = True
 tesObjek = "data/datalatih/Ikan/TrainImages/pos"
 tesNotObjek = "data/datalatih/Ikan/TrainImages/neg"
 
+tesPositif = "data/datalatih/Ikan/TestAkurasi/pos"
+tesNegatif = "data/datalatih/Ikan/TestAkurasi/neg"
+
 # Folder tempat vektor hasil ekstrak ciri dan model
 fiturObjek = "data/fitur/pos"
 fiturBukanObjek = "data/fitur/neg"
 folderModel = "data/models/svm.model"
 
 # nilai thresold untuk proses NMS
-threshold = 0.1
+threshold = 0.3

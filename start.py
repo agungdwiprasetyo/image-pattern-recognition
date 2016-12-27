@@ -15,7 +15,7 @@ if isTrain=="n":
 print "\nStep 3: Proses mendeteksi objek dari model yang telah dilatih"
 
 # tesCitra = "data/datalatih/CarData/TestImages/test-132.pgm"
-tesCitra = "data/datalatih/Ikan/TestImages/4.jpg"
+tesCitra = "data/datalatih/Ikan/TestImages/12.jpg"
 downscale = 2 # untuk skala pengecilan citra yg dites, default yg ada di kelas = 2.5x
 visualisasi = True # untuk melihat proses pendeteksian objek pada citra saat sliding windows, default yg di kelas = True
 DeteksiObjek(tesCitra,downscale,visualisasi).startDeteksiObjek()

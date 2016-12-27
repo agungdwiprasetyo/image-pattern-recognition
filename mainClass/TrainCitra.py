@@ -5,6 +5,9 @@ import glob
 import os
 from config import *
 from classifier.svm import SVM
+from skimage.feature import hog
+from ConfusionMatrix import ConfusionMatrix
+import cv2
 
 class TrainingData(object):
     def __init__(self, vektorObjek, vektorNonObjek):
@@ -45,8 +48,14 @@ class TrainingData(object):
 
         print "Training sukses."
         print "Spesifikasi model SVM yang telah dilatih: "
+        print "-- Nilai bobot:"
+        print clf.w
         # plot hasil training data untuk melihat hyperplane-nya
+        print "-- Plot Hyperplane:"
         clf.plot_margin(trainDataX[trainDataY==1],trainDataX[trainDataY==-1],clf)
+
+        print "-- Confusion Matrix:"
+        ConfusionMatrix(model=clf).printMatrix()
 
         # Buat folder untuk menyimpan model SVM hasil training
         if not os.path.isdir(os.path.split(folderModel)[0]):
@@ -55,4 +64,3 @@ class TrainingData(object):
         # Simpan model ke folder yang telah dibuat/ada
         joblib.dump(clf, folderModel)
         print "Model classifier saved to {}".format(folderModel)
-

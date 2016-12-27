@@ -100,7 +100,6 @@ class SVM(object):
         return np.sign(self.testing(X))
 
     def plot_margin(self, X1_train, X2_train, clf):
-        print clf.w, np.size(clf.w)
         def f(x, w, b, c=0):
             return (-w[0] * x - b + c) / w[1]
 
