@@ -51,7 +51,7 @@ class DeteksiObjek(object):
                 if prediksi == 1:
                     # Tandai objek yang terdeteksi, dengan menyimpan lokasi objek
                     print  "Objek terdeteksi:: Lokasi -> ({}, {})".format(x, y)
-                    print "Scale ->  {} | Akurasi {} \n".format(scale,clf.akurasi(fitur))
+                    # print "Scale ->  {} | Akurasi {} \n".format(scale,clf.akurasi(fitur))
                     detections.append((x, y, clf.akurasi(fitur), int(self.minWindowSize[0]*(self.downscale**scale)), int(self.minWindowSize[1]*(self.downscale**scale))))
                     propertiTerdeteksi.append(detections[-1]) # append detections[-1] buat push array dari indeks belakang array detections
 
