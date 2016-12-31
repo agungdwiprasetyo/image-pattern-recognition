@@ -8,16 +8,15 @@ Jika baru menginstal python, instal ```python-pip``` dan ```python-dev``` dahulu
 ```sh
 $ sudo apt-get install python-pip python-dev
 ```
-Instal OpenCV pada python:
-```sh
-http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
-```
-Instal library yang dibutuhkan yaitu: ```numpy```, ```matplotlib```, ```cvxopt```, ```scikit-image```:
+Instal OpenCV pada python, tutorial buka link ini ->
+[Install OpenCV](http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/)
+
+Instal library yang dibutuhkan yaitu: ```numpy```, ```scikit-image```, ```matplotlib``` (untuk plot *hyperplane*), ```cvxopt``` (untuk operasi matriks dan masalah optimasi pada SVM):
 ```
 $ sudo pip install numpy
+$ sudo pip install scikit-image
 $ sudo pip install matplotlib
 $ sudo pip install cvxopt
-$ sudo pip install scikit-image
 ```
 Jalankan program:
 ```sh
@@ -45,7 +44,7 @@ Secara umum tahapan dalam program ini yaitu pengumpulan data latih citra, prapro
 ![ciri](https://github.com/agungdwiprasetyo/project-ppcd/raw/master/imagesMarkdown/ekstraksiCiri.png)
 **Banyaknya vektor per citra hasil ekstraksi yaitu berjumlah 14904, sehingga ukuran *datasets* yang akan dilatih oleh SVM yaitu sebesar 388x14904**
 
-3. **Pengenalan Pola dengan *Support Vector Machine* (SVM)**: Program ini menggunakan dataset citra yang diambil melalui *google image* sebagai citra *template* yang nantinya akan dibandingkan dengan citra masukan. Metode algoritma yang digunakan adalah *Support Vector Machine* (SVM). Algoritma tersebut merupakan teknik untuk melakukan prediksi baik dalam kasus klasifikasi atau regresi. Konsep dasar SVM merupakan kombinasi dari teori-teori komputasi , seperti *margin hyperplane*, kernel, dan konsep-konsep pendukung lainnya. SVM pun masih berada dalam satu kelas dengan *Artificial Neural Network* (ANN) dalam hal fungsi dan kondisi permasalahan yang bisa diselesaikan. Dalam program ini, teknik SVM digunakan sebagai *classifier* untuk membandingkan citra masukan dengan citra *template*. Kernel yang digunakan pada SVM adalah linear, (kernel lainnya yaitu *Polynomial* dan *Gaussian*). Data untuk objek yang positif dan negatif dapat dipisahkan secara tegas. Pendekatan yang digunakan adalah *Quadratic Programming* (QP). QP memiliki fungsi objektif yang kuadratik dengan kendala yang linear. Untuk optimisasi fungsi objektif digunakan *Lagrange Multipliers*. Dalam menyelesaikan permasalahan-permasalahan optimasi *quadratic programming* pada matriks yang terbentuk, digunakan library ```cvxopt``` pada python (*dapat dilihat di file program pada folder* ```mainClass/classifier/svm.py```). Metode SVM dalam program aplikasi ini dibuat dalam kelas sendiri, dan **tidak menggunakan *library***. Ada opsional lain untuk menggunakan metode SVM ini, yaitu dengan menginstal library ```scikit-learn```. *Library* ```scikit-learn``` dalam python tidak hanya SVM saja, tetapi ada algoritma *machine learning* lainnya seperti ANN, Naive Bayes, dan K-Nearest Neighbors (KNN).
+3. **Pengenalan Pola dengan *Support Vector Machine* (SVM)**: Program ini menggunakan dataset citra yang diambil melalui *google image* sebagai citra *template* yang nantinya akan dibandingkan dengan citra masukan. Metode algoritma yang digunakan adalah *Support Vector Machine* (SVM). Algoritma tersebut merupakan teknik untuk melakukan prediksi baik dalam kasus klasifikasi atau regresi. Konsep dasar SVM merupakan kombinasi dari teori-teori komputasi , seperti *margin hyperplane*, kernel, dan konsep-konsep pendukung lainnya. SVM pun masih berada dalam satu kelas dengan *Artificial Neural Network* (ANN) dalam hal fungsi dan kondisi permasalahan yang bisa diselesaikan. Dalam program ini, teknik SVM digunakan sebagai *classifier* untuk membandingkan citra masukan dengan citra *template*. Kernel yang digunakan pada SVM adalah linear, (kernel lainnya yaitu *Polynomial* dan *Gaussian*). Data untuk objek yang positif dan negatif dapat dipisahkan secara tegas. Pendekatan yang digunakan adalah *Quadratic Programming* (QP). QP memiliki fungsi objektif yang kuadratik dengan kendala yang linear. Untuk optimisasi fungsi objektif digunakan *Lagrange Multipliers*. Dalam menyelesaikan permasalahan-permasalahan optimasi *quadratic programming* pada matriks yang terbentuk, digunakan library ```cvxopt``` pada python (*dapat dilihat di file program pada folder* ```mainClass/classifier/svm.py```). Metode SVM dalam program aplikasi ini dibuat dalam kelas sendiri, dan **tidak menggunakan library**. Ada opsional lain untuk menggunakan metode SVM ini, yaitu dengan menginstal library ```scikit-learn```. *Library* ```scikit-learn``` dalam python tidak hanya SVM saja, tetapi ada algoritma *machine learning* lainnya seperti ANN, Naive Bayes, dan K-Nearest Neighbors (KNN).
 
 	**Untuk proses klasifikasi, data vektor yang termasuk objek diberi label kelas 1 sedangkan data vektor yang bukan termasuk objek diberi label kelas -1.**
     
