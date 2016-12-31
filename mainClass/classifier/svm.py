@@ -1,8 +1,7 @@
 import pylab as pl
 import numpy as np
 from numpy import linalg
-import cvxopt
-import cvxopt.solvers
+from cvxopt import matrix, solvers # untuk menyelesaikan permesalahan nilai optimum di matriks pada quadratic programming
 
 def linear_kernel(x1, x2):
     return np.dot(x1, x2)
@@ -36,24 +35,25 @@ class SVM(object):
             for j in range(n_samples):
                 K[i,j] = self.kernel(X[i], X[j])
 
-        P = cvxopt.matrix(np.outer(y,y) * K)
-        q = cvxopt.matrix(np.ones(n_samples) * -1)
-        A = cvxopt.matrix(y, (1,n_samples))
-        b = cvxopt.matrix(0.0)
+        P = matrix(np.outer(y,y) * K)
+        q = matrix(np.ones(n_samples) * -1)
+        A = matrix(y, (1,n_samples))
+        b = matrix(0.0)
 
         if self.C is None:
-            G = cvxopt.matrix(np.diag(np.ones(n_samples) * -1))
-            h = cvxopt.matrix(np.zeros(n_samples))
+            G = matrix(np.diag(np.ones(n_samples) * -1))
+            h = matrix(np.zeros(n_samples))
         else:
             tmp1 = np.diag(np.ones(n_samples) * -1)
             tmp2 = np.identity(n_samples)
-            G = cvxopt.matrix(np.vstack((tmp1, tmp2)))
+            G = matrix(np.vstack((tmp1, tmp2)))
             tmp1 = np.zeros(n_samples)
             tmp2 = np.ones(n_samples) * self.C
-            h = cvxopt.matrix(np.hstack((tmp1, tmp2)))
+            h = matrix(np.hstack((tmp1, tmp2)))
 
-        # solve QP problem
-        solution = cvxopt.solvers.qp(P, q, G, h, A, b)
+        # solve Quadratic Programming problem
+        print "Solusi Optimal: "
+        solution = solvers.qp(P, q, G, h, A, b)
 
         # Lagrange multipliers
         a = np.ravel(solution['x'])
