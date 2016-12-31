@@ -3,33 +3,34 @@ Dalam penelitian ini menjelaskan tentang program aplikasi pendeteksian suatu obj
 
 ## Environment
 Dalam program ini, digunakan bahasa pemrograman Python versi 2.7 dan ditulis dalam struktur *Object Oriented Programming* (OOP). Tujuan dikembangkan dalam struktur OOP yaitu supaya mempermudah pembacaan program dengan membagi kedalam modul-modul/kelas. Program ini dikembangkan dalam sistem operasi Linux.
-1. Jika baru menginstal python, instal ```python-pip``` dan ```python-dev``` dahulu untuk mempermudah menginstal library-library yang dibutuhkan selanjutnya.
-    ```sh
-    $ sudo apt-get install python-pip python-dev
-    ```
-2. Instal OpenCV pada python
-    ```sh
-    http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
-    ```
-3. Instal library yang dibutuhkan yaitu: ```numpy```, ```matplotlib```, ```cvxopt```, ```scikit-image```
-    ```sh
-    $ sudo pip install numpy
-    $ sudo pip install matplotlib
-    $ sudo pip install cvxopt
-    $ sudo pip install scikit-image
-    ```
-4. Jalankan program
-    ```sh
-    $ python start.py
-    ``` 
-    atau bisa juga (jika menggunakan Terminal Linux)
-    ```sh
-    $ ./start.py
-    ``` 
-5. Jika masih terdapat error, instal library lain yang muncul di pesan error tersebut pada python
-    ```sh
-    $ sudo pip install [nama library]
-    ```
+
+Jika baru menginstal python, instal ```python-pip``` dan ```python-dev``` dahulu untuk mempermudah menginstal library-library yang dibutuhkan selanjutnya.
+```sh
+$ sudo apt-get install python-pip python-dev
+```
+Instal OpenCV pada python:
+```sh
+http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
+```
+Instal library yang dibutuhkan yaitu: ```numpy```, ```matplotlib```, ```cvxopt```, ```scikit-image```:
+```sh
+$ sudo pip install numpy
+$ sudo pip install matplotlib
+$ sudo pip install cvxopt
+$ sudo pip install scikit-image
+```
+Jalankan program:
+```sh
+$ python start.py
+``` 
+atau bisa juga (jika menggunakan Terminal Linux):
+```sh
+$ ./start.py
+```
+Jika masih terdapat error, instal library lain yang muncul di pesan error tersebut pada python:
+```sh
+$ sudo pip install [nama library]
+```
 
 ## Tahapan Program
 Secara umum tahapan dalam program ini yaitu pengumpulan data latih citra, praproses citra, ekstraksi ciri masing-masing data citra, proses *training* hasil ekstraksi ciri untuk pengenalan pola, dan *testing* data.
