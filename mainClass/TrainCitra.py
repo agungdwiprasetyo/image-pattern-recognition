@@ -42,7 +42,7 @@ class TrainingData(object):
 
         # diperoleh array matriks trainDataX yang berukuran banyak data latih * jumlah vektor per data citra
         # dan array matriks trainDataY yang berisi nilai klasifikasi, untuk selanjutnya ditraining menggunakan SVM
-        print "Step 2: Training vektor dengan SVM..."
+        print "Training vektor dengan SVM..."
         clf = SVM(kernel="linear", galat=1e-2, C=0.4)
         clf.fit(trainDataX, trainDataY)
 
