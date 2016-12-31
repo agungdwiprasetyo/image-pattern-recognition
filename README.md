@@ -1,8 +1,8 @@
 # Pengolahan Citra Digital - Pattern Recognition
-Dalam penelitian ini menjelaskan tentang program aplikasi pendeteksian suatu objek yang didefinisikan terlebih dahulu dalam sebuah citra. Contoh suatu objek dalam hal ini yaitu ikan, mobil, rumah, tomat, dan lain-lain. Deteksi suatu objek yang digunakan dalam program ini yaitu menggunakan *Histogram of Oriented Gradient* (HOG) untuk mengekstraksi ciri dari objek dan bukan objek/*background*, serta proses pelatihan (*learning*) menggunakan *Support Vector Machine* (SVM) untuk melatih data yang telah diekstrak yang selanjutnya dilakukan proses klasifikasi antara objek dan bukan objek. Objek yang akan dideteksi dalam penelitian ini adalah **ikan**.
+Penelitian ini menjelaskan tentang program aplikasi pendeteksian suatu objek yang didefinisikan terlebih dahulu dalam sebuah citra. Contoh suatu objek dalam hal ini yaitu ikan, mobil, rumah, tomat, dan lain-lain. Deteksi suatu objek yang digunakan dalam program ini yaitu menggunakan *Histogram of Oriented Gradient* (HOG) untuk mengekstraksi ciri dari objek dan bukan objek/*background*, serta proses pelatihan (*learning*) menggunakan *Support Vector Machine* (SVM) untuk melatih data yang telah diekstrak yang selanjutnya dilakukan proses klasifikasi antara objek dan bukan objek. Objek yang akan dideteksi dalam penelitian ini adalah **ikan**.
 
 ## *Requirements*
-Dalam program ini, digunakan bahasa pemrograman Python versi 2.7 dan ditulis dalam struktur *Object Oriented Programming* (OOP). Tujuan dikembangkan dalam struktur OOP yaitu supaya mempermudah pembacaan program dengan membagi kedalam modul-modul/kelas. Program ini dikembangkan dalam sistem operasi Linux.
+Program ini menggunakan bahasa pemrograman Python versi 2.7 dan ditulis dalam struktur *Object Oriented Programming* (OOP). Tujuan dikembangkan dalam struktur OOP yaitu supaya mempermudah pembacaan program dengan membagi kedalam modul-modul/kelas. Program ini dikembangkan dalam sistem operasi Linux.
 
 Jika baru menginstal python, instal ```python-pip``` dan ```python-dev``` dahulu untuk mempermudah menginstal library-library yang dibutuhkan selanjutnya.
 ```sh
@@ -11,7 +11,7 @@ $ sudo apt-get install python-pip python-dev
 Instal OpenCV pada python, tutorial buka link ini ->
 [Install OpenCV](http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/)
 
-Instal library yang dibutuhkan yaitu: ```numpy```, ```scikit-image```, ```matplotlib``` (untuk plot *hyperplane*), ```cvxopt``` (untuk operasi matriks dan masalah optimasi pada SVM):
+Instal library yang dibutuhkan yaitu: ```numpy```, ```scikit-image```, ```matplotlib``` (untuk plot *hyperplane* pada SVM), ```cvxopt``` (untuk operasi matriks dan masalah optimasi pada SVM):
 ```
 $ sudo pip install numpy
 $ sudo pip install scikit-image
