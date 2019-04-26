@@ -23,18 +23,19 @@ class EkstrakFitur(object):
 
         print "Menghitung nilai vektor sample fitur positif (objek yang akan dideteksi)..."
         for img in glob.glob(os.path.join(self.pathPositif, "*")): # load satu-satu data citra objek pada folder datates
-            im = cv2.imread(img, cv2.CV_LOAD_IMAGE_GRAYSCALE)
+            im = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
             # Hitung nilai HOG untuk mendapatkan fitur objek
-            fitur = hog(im, orientations, cellSize, cellPerBlock, visualizeHOG, normalizeHOG) # variabel dari file config
+            print(orientations, cellSize, cellPerBlock, visualizeHOG, normalizeHOG)
+            fitur = hog(im, orientations, cellSize, cellPerBlock) # variabel dari file config
             # fitur = EkstrakWavelet(im).ekstrak()
             vektorObjek.append(fitur)
             obj+=1
         print "Banyak citra objek yang dilatih =",obj
         print "Menghitung nilai vektor sample fitur negatif (citra yang bukan termasuk objek)..."
         for img in glob.glob(os.path.join(self.pathNegatif, "*")): # load satu-satu data citra bukan objek pada folder datates
-            im = cv2.imread(img, cv2.CV_LOAD_IMAGE_GRAYSCALE)
+            im = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
             # Hitung nilai HOG untuk mendapatkan fitur yang bukan objek
-            fitur = hog(im,  orientations, cellSize, cellPerBlock, visualizeHOG, normalizeHOG)
+            fitur = hog(im,  orientations, cellSize, cellPerBlock)
             # fitur = EkstrakWavelet(im).ekstrak()
             vektorNonObjek.append(fitur)
             nonObj+=1

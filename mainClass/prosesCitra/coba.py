@@ -1,7 +1,7 @@
 from hog import HOG
 import cv2
 
-img = cv2.imread("tes.pgm",cv2.CV_LOAD_IMAGE_GRAYSCALE)
+img = cv2.imread("tes.pgm",cv2.IMREAD_GRAYSCALE)
 cobaa = HOG(img)
 
 x,y = cobaa.gradient()

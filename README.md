@@ -11,6 +11,11 @@ $ sudo apt-get install python-pip python-dev
 Instal OpenCV pada python, tutorial buka link ini ->
 [Install OpenCV](http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/)
 
+Jika menggunakan MacOS:
+```sh
+$ brew install opencv3
+```
+
 Instal library yang dibutuhkan yaitu: ```numpy```, ```scikit-image```, ```matplotlib``` (untuk plot *hyperplane* pada SVM), ```cvxopt``` (untuk operasi matriks dan masalah optimasi pada SVM):
 ```
 $ sudo pip install numpy

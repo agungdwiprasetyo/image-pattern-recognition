@@ -26,7 +26,7 @@ class DeteksiObjek(object):
 
     def startDeteksiObjek(self):
         # Baca citra yang akan dideteksi objeknya
-        im = cv2.imread(self.objekCitra, cv2.CV_LOAD_IMAGE_GRAYSCALE)
+        im = cv2.imread(self.objekCitra, cv2.IMREAD_GRAYSCALE)
         # Load model SVM
         clf = joblib.load(folderModel)
 
@@ -44,7 +44,7 @@ class DeteksiObjek(object):
                 if im_window.shape[0] != self.minWindowSize[1] or im_window.shape[1] != self.minWindowSize[0]:
                     continue
                 # Hitung hog dari bagian sliding windows, variabel parameter dari file config.py
-                fitur = hog(im_window, orientations, cellSize, cellPerBlock, visualizeHOG, normalizeHOG)
+                fitur = hog(im_window, orientations, cellSize, cellPerBlock)
                 # fitur = EkstrakWavelet(im_window).ekstrak()
                 fitur = np.array(fitur).reshape((1, -1))
                 prediksi = clf.predict(fitur)
